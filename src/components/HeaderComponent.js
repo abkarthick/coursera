@@ -30,16 +30,18 @@ class Header extends Component {
                     <Collapse navbar isOpen={this.state.isNavOpen} className='d-md-flex justify-content-end mr-5' >
                         <Nav navbar>
                             {[
-                                { link: '/home', label: 'Home' },
-                                { link: '/menu', label: 'Menu' },
-                                { link: '/aboutus', label: 'About' },
-                                { link: '/contactus', label: 'Contact' }
-                            ].map((navs) => {
-                                <NavItem>
-                                    <NavLink className="nav-link" to={navs.link}>
-                                        <span className='fa fa-home fa-lg'></span> Home
-                                    </NavLink>
-                                </NavItem>
+                                { link: '/home', label: 'Home', icon: 'fa fa-home' },
+                                { link: '/menu', label: 'Menu', icon: 'fa fa-list' },
+                                { link: '/aboutus', label: 'About', icon: 'fa fa-info' },
+                                { link: '/contactus', label: 'Contact', icon: 'fa fa-address-card' }
+                            ].map((navs, index) => {
+                                return (
+                                    <NavItem key={index}>
+                                        <NavLink className="nav-link" to={navs.link}>
+                                            <span className={`${navs.icon} fa-lg mr-1`}></span> {navs.label}
+                                        </NavLink>
+                                    </NavItem>
+                                );
                             })}
                             {/* <NavItem>
                                 <NavLink className="nav-link" to="/home">

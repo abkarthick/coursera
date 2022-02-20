@@ -10,9 +10,9 @@ function RenderCard({ item }) {
     <Card className="shadow-sm">
       <CardImg src={item.image} alt={item.name} />
       <CardBody>
-        <CardTitle>{item.name}</CardTitle>
-        {item.designation ? <CardSubtitle>{item.designation}</CardSubtitle> : null}
-        <CardText>{item.description}</CardText>
+        <CardTitle tag={'h3'} className="pb-3">{item.name}</CardTitle>
+        {item.designation ? <CardSubtitle className="pb-3">{item.designation}</CardSubtitle> : null}
+        <CardText className=''>{item.description}</CardText>
       </CardBody>
     </Card>
   );
