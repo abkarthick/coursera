@@ -21,6 +21,7 @@
   margin: 0px auto;
   background: #9575cd;
   color: floralwhite;
+  border-radius: 0;
 }
 
 address {
@@ -31,4 +32,9 @@ address {
 
 .navbar-dark {
   background-color: #512da8;
+}
+
+.breadcrumb {
+  margin: 15px auto;
+  padding: 15px 10px;
 }

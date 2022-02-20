@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 function RenderMenuItem({ dish }) {
 	return (
-		<Card>
+		<Card className='mx-auto' style={{maxWidth: '285px'}}>
 			<Link to={`/menu/${dish.id}`}>
 				<CardImg alt={dish.name} src={dish.image} width='100%' />
 				<CardImgOverlay>
-					<CardTitle tag='h2' className='text-start'>
+					<CardTitle tag='h2' className='text-start text-light bg-dark text-center py-3 opacity-75 fs-2'>
 						{dish.name}
 					</CardTitle>
 				</CardImgOverlay>
@@ -20,7 +20,7 @@ function RenderMenuItem({ dish }) {
 const Menu = (props) => {
 	const menu = props.dishes.map((dish) => {
 		return (
-			<div key={dish.id} className='col-12 col-md-5 m-1'>
+			<div key={dish.id} className='col-12 col-md-6 col-lg-3 mb-5'>
 				<RenderMenuItem dish={dish} />
 			</div>
 		)
@@ -44,6 +44,5 @@ const Menu = (props) => {
 		</div>
 	)
 }
-
 
 export default Menu;

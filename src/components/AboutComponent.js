@@ -7,11 +7,11 @@ function About(props) {
     const RenderLeader = ({ leader }) => {
         return (
             <div key={leader.id} className="col-12 mt-5">
-                <Media className='d-md-flex'>
-                    <Media start middle className='m-2'>
+                <Media>
+                    <Media start middle className='mx-2'>
                         <Media object src={leader.image} alt={leader.name} />
                     </Media>
-                    <Media body className="m-2">
+                    <Media body className="mx-4">
                         <Media heading>{leader.name}</Media>
                         <p>{leader.designation}</p>
                         <p>{leader.description}</p>
@@ -82,7 +82,6 @@ function About(props) {
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
-                    {console.log(props.leaders)}
                     <Media list>
                         {leaders}
                     </Media>

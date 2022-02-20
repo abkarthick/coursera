@@ -15,10 +15,10 @@ const DishDetails = (props) => {
 				<h2>Comments</h2>
 				{comments.map(comment => {
 					return (
-						<li key={comment.id} >
+						<div key={comment.id} >
 							<p>{comment.comment}</p>
 							<p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(comment.date))}</p>
-						</li>
+						</div>
 					)
 				})}
 			</>
@@ -26,8 +26,6 @@ const DishDetails = (props) => {
 	}
 
 	function RenderDish({ dish }) {
-		console.log('dish::: ', dish)
-
 		return (
 			<Card>
 				<CardImg alt={dish.name} src={dish.image} top width='100%' />
@@ -41,7 +39,7 @@ const DishDetails = (props) => {
 
 	if (props.dish != null)
 		return (
-			<div className='container'>
+			<div className='container mb-5'>
 				<div className='row'>
 					<Breadcrumb>
 						<BreadcrumbItem><Link to='/home'>Home</Link></BreadcrumbItem>

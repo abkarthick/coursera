@@ -23,36 +23,46 @@ class Header extends Component {
             <>
                 {/* <React.Fragment></React.Fragment> same as  <></> */}
                 <Navbar dark expand="md">
-                    <div className="container">
-                        <NavbarToggler onClick={this.toggleNav} />
-                        <NavbarBrand href="/">
-                            <img src="assets/images/logo.png" alt="Restuarant" height="30" width="41" />
-                        </NavbarBrand>
-                        <Collapse navbar isOpen={this.state.isNavOpen} >
-                            <Nav navbar>
+                    <NavbarBrand href="/">
+                        <img src="assets/images/logo.png" alt="Restuarant" height="30" width="41" />
+                    </NavbarBrand>
+                    <NavbarToggler onClick={this.toggleNav} />
+                    <Collapse navbar isOpen={this.state.isNavOpen} className='d-md-flex justify-content-end mr-5' >
+                        <Nav navbar>
+                            {[
+                                { link: '/home', label: 'Home' },
+                                { link: '/menu', label: 'Menu' },
+                                { link: '/aboutus', label: 'About' },
+                                { link: '/contactus', label: 'Contact' }
+                            ].map((navs) => {
                                 <NavItem>
-                                    <NavLink className="nav-link" to="/home">
+                                    <NavLink className="nav-link" to={navs.link}>
                                         <span className='fa fa-home fa-lg'></span> Home
                                     </NavLink>
                                 </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
-                                        <span className='fa fa-info fa-lg'></span> About
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/menu">
-                                        <span className='fa fa-list fa-lg'></span> Menu
-                                    </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
-                                        <span className='fa fa-address-card fa-lg'></span> Contact
-                                    </NavLink>
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                    </div>
+                            })}
+                            {/* <NavItem>
+                                <NavLink className="nav-link" to="/home">
+                                    <span className='fa fa-home fa-lg'></span> Home
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/aboutus">
+                                    <span className='fa fa-info fa-lg'></span> About
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/menu">
+                                    <span className='fa fa-list fa-lg'></span> Menu
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
+                                <NavLink className="nav-link" to="/contactus">
+                                    <span className='fa fa-address-card fa-lg'></span> Contact
+                                </NavLink>
+                            </NavItem> */}
+                        </Nav>
+                    </Collapse>
                 </Navbar>
                 <div className="jumbotron">
                     <div className="container">
