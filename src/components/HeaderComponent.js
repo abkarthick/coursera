@@ -46,8 +46,8 @@ class Header extends Component {
                             {[
                                 { link: '/home', label: 'Home', icon: 'fa fa-home' },
                                 { link: '/menu', label: 'Menu', icon: 'fa fa-list' },
-                                { link: '/aboutus', label: 'About', icon: 'fa fa-info' },
-                                { link: '/contactus', label: 'Contact', icon: 'fa fa-address-card' }
+                                { link: '/aboutus', label: 'About Us', icon: 'fa fa-info' },
+                                { link: '/contactus', label: 'Contact Us', icon: 'fa fa-address-card' }
                             ].map((navs, index) => {
                                 return (
                                     <NavItem key={index}>
@@ -61,7 +61,7 @@ class Header extends Component {
                         <Nav className='ml-auto' navbar>
                             <NavItem>
                                 <Button outline color='light' onClick={this.toggleModal}>
-                                    <span className='fa fa-sign-in fa-lg'></span>
+                                    <span className='fa fa-sign-in fa-lg'></span> Login
                                 </Button>
                             </NavItem>
                         </Nav>
