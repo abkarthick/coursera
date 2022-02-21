@@ -61,53 +61,70 @@ class Contact extends Component {
                     <div className='col-12 col-md-9'>
                         <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
-                                <Label htmlFor='firstname' md={2}>First Name</Label>
+                                <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
-                                    <Control.text model=".firstname" className='form-control' id='firstname' name='firstname' placeholder='First Name' />
+                                    <Control.text model=".firstname" id="firstname" name="firstname"
+                                        placeholder="First Name"
+                                        className="form-control"
+                                    />
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor='lastname' md={2}>Last Name</Label>
+                                <Label htmlFor="lastname" md={2}>Last Name</Label>
                                 <Col md={10}>
-                                    <Control.text model=".lastname" className='form-control' type='text' id='lastname' name='lastname' placeholder='Last Name' />
+                                    <Control.text model=".lastname" id="lastname" name="lastname"
+                                        placeholder="Last Name"
+                                        className="form-control"
+                                    />
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor='telnum' md={2}>Contact Tel.</Label>
+                                <Label htmlFor="telnum" md={2}>Contact Tel.</Label>
                                 <Col md={10}>
-                                    <Control.text model=".telnum" className='form-control' id='telnum' name='telnum' placeholder='Contact Tel.' />
+                                    <Control.text model=".telnum" id="telnum" name="telnum"
+                                        placeholder="Tel. Number"
+                                        className="form-control"
+                                    />
                                 </Col>
                             </Row>
                             <Row className="form-group">
-                                <Label htmlFor='email' md={2}>Email</Label>
+                                <Label htmlFor="email" md={2}>Email</Label>
                                 <Col md={10}>
-                                    <Control.text model='.email' className='form-control' id='email' name='email' placeholder='Email' />
+                                    <Control.text model=".email" id="email" name="email"
+                                        placeholder="Email"
+                                        className="form-control" />
                                 </Col>
                             </Row>
                             <Row className="form-group">
                                 <Col md={{ size: 6, offset: 2 }}>
-                                    <Row className="form-check">
+                                    <div className="form-check">
                                         <Label check>
-                                            <Control.checkbox model='.agree' name='agree' className='form-check-input' /> {' '} <strong>May we contact you?</strong>
+                                            <Control.checkbox model=".agree" name="agree"
+                                                className="form-check-input"
+                                            /> {' '}
+                                            <strong>May we contact you?</strong>
                                         </Label>
-                                    </Row>
+                                    </div>
                                 </Col>
                                 <Col md={{ size: 3, offset: 1 }}>
-                                    <Control.select model='.contactType' name='contactType' className='form-control'>
+                                    <Control.select model=".contactType" name="contactType"
+                                        className="form-control">
                                         <option>Tel.</option>
-                                        <option>Email.</option>
+                                        <option>Email</option>
                                     </Control.select>
                                 </Col>
                             </Row>
-                            <Row className="form-group" row>
-                                <Label htmlFor='message' md={2}>Your Feedback</Label>
+                            <Row className="form-group">
+                                <Label htmlFor="message" md={2}>Your Feedback</Label>
                                 <Col md={10}>
-                                    <Control.textarea model='.message' className='form-control' id='message' name='message' placeholder='Your Feedback' rows='12'>{this.state.message}</Control.textarea>
+                                    <Control.textarea model=".message" id="message" name="message"
+                                        rows="12"
+                                        className="form-control" />
                                 </Col>
                             </Row>
-                            <Row className="form-group" row>
-                                <Col md={{ size: 6, offset: 2 }}>
-                                    <Button type='submit' color='primary'>
+                            <Row className="form-group">
+                                <Col md={{ size: 10, offset: 2 }}>
+                                    <Button type="submit" color="primary">
                                         Send Feedback
                                     </Button>
                                 </Col>
