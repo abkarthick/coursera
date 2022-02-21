@@ -25,7 +25,6 @@ class Main extends Component {
     //     super(props);
     // }
 
-
     render() {
         const HomePage = () => {
             return (
@@ -36,7 +35,6 @@ class Main extends Component {
                 />
             );
         }
-
 
         const DishWithId = ({ match }) => {
             return (
