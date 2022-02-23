@@ -13,8 +13,6 @@ class Contact extends Component {
         console.log("current state is: " + JSON.stringify(values));
         alert("current state is: " + JSON.stringify(values));
     }
-
-
     render() {
         return (
             <div className="container">
