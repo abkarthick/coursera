@@ -29,7 +29,7 @@ class Header extends Component {
 
     handleLogin(event) {
         this.toggleModal();
-        alert('username: ' + this.username.value + 'password: ' + this.password.value + ' Remember Me: ' + this.remember.checked)
+        alert('username: ' + this.username.value + 'password: ' + this.password.value + ' remember: ' + this.remember.checked)
         event.preventDefault();
     }
     render() {
@@ -91,7 +91,7 @@ class Header extends Component {
                             </FormGroup>
                             <FormGroup check>
                                 <Label check>
-                                    <Input type="checkbox" name="remember" innerRef={(input) => this.remember = input}  /> Remember Me
+                                    <Input type="checkbox" id="remember" name="remember" innerRef={(input) => this.remember = input}  /> Remember Me
                                 </Label>
                             </FormGroup>
                             <Button type='submit' value='submit' className='bg-primary'>Login</Button>

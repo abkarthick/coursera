@@ -81,9 +81,9 @@ class Contact extends Component {
                                         model=".firstname"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
+                                            required: 'Required! ',
+                                            minLength: 'Must be greater than 2 characters! ',
+                                            maxLength: 'Must be 15 characters or less! '
                                         }}
                                     />
                                 </Col>
@@ -103,9 +103,9 @@ class Contact extends Component {
                                         model=".lastname"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 characters',
-                                            maxLength: 'Must be 15 characters or less'
+                                            required: 'Required! ',
+                                            minLength: 'Must be greater than 2 characters! ',
+                                            maxLength: 'Must be 15 characters or less! '
                                         }}
                                     />
                                 </Col>
@@ -125,10 +125,10 @@ class Contact extends Component {
                                         model=".telnum"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            minLength: 'Must be greater than 2 numbers',
-                                            maxLength: 'Must be 15 numbers or less',
-                                            isNumber: 'Must be a number'
+                                            required: 'Required! ',
+                                            minLength: 'Must be greater than 2 numbers! ',
+                                            maxLength: 'Must be 15 numbers or less! ',
+                                            isNumber: 'Must be a number! '
                                         }}
                                     />
                                 </Col>
@@ -148,8 +148,8 @@ class Contact extends Component {
                                         model=".email"
                                         show="touched"
                                         messages={{
-                                            required: 'Required',
-                                            validEmail: 'Invalid Email Address'
+                                            required: 'Required! ',
+                                            validEmail: 'Invalid Email Address! '
                                         }}
                                     />
                                 </Col>
