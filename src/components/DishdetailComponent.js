@@ -9,6 +9,7 @@ import {
 import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -41,7 +42,7 @@ export class CommentForm extends Component {
 	render() {
 		return (
 			<>
-				<Button outline secondary onClick={this.toggleModal}>
+				<Button outline color="secondary" onClick={this.toggleModal}>
 					<i className='fa fa-edit'></i> Submit Comments
 				</Button>
 				<Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
@@ -92,6 +93,7 @@ export class CommentForm extends Component {
 }
 
 function RenderComments({ comments, addComment, dishId }) {
+	console.log('commentscomments::', comments)
 	return (
 		<>
 			<h2>Comments</h2>
@@ -111,7 +113,7 @@ function RenderComments({ comments, addComment, dishId }) {
 function RenderDish({ dish }) {
 	return (
 		<Card>
-			<CardImg alt={dish.name} src={dish.image} top width='100%' />
+			<CardImg alt={dish.name} src={baseUrl + dish.image} top width='100%' />
 			<CardBody>
 				<CardTitle tag='h5'>{dish.name}</CardTitle>
 				<CardText tag='h5'>{dish.description}</CardText>
@@ -121,7 +123,8 @@ function RenderDish({ dish }) {
 }
 
 
-const DishDetails = (props) => {
+const DishDetail = (props) => {
+	console.log('DishDetail props', props)
 	if (props.isLoading) {
 		return (
 			<div className='container'>
@@ -160,12 +163,8 @@ const DishDetails = (props) => {
 					</div>
 				</div>
 			</div>
+		)
+	else return <></>
 
-		)
-	else {
-		return (
-			<></>
-		)
-	}
 }
-export default DishDetails
+export default DishDetail

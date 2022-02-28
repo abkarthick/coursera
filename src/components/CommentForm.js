@@ -36,7 +36,7 @@ class CommentForm extends Component {
     render() {
         return (
             <>
-                <Button outline secondary onClick={this.toggleModal}>
+                <Button outline color="secondary" onClick={this.toggleModal}>
                     <i className='fa fa-edit'></i> Submit Comments
                 </Button>
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
