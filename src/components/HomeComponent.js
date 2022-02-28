@@ -5,6 +5,7 @@ import {
 } from 'reactstrap';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform } from 'react-animation-components';
 
 function RenderCard({ item, isLoading, errMess }) {
   if (isLoading) {
@@ -25,36 +26,44 @@ function RenderCard({ item, isLoading, errMess }) {
     );
   } else {
     return (
-      <Card className="shadow-sm">
-        <CardImg src={baseUrl + item.image} alt={item.name} />
-        <CardBody>
-          <CardTitle tag={'h3'} className="pb-3">{item.name}</CardTitle>
-          {item.designation ? <CardSubtitle className="pb-3">{item.designation}</CardSubtitle> : null}
-          <CardText className=''>{item.description}</CardText>
-        </CardBody>
-      </Card>
+      <div className='col-12 col-md-4 py-5'>
+        <FadeTransform in
+          transformProps={{
+            exitTransform: 'scale(0.5) translateY(-50%)'
+          }}>
+          <Card className="shadow-sm">
+            <CardImg src={baseUrl + item.image} alt={item.name} />
+            <CardBody>
+              <CardTitle tag={'h3'} className="pb-3">{item.name}</CardTitle>
+              {item.designation ? <CardSubtitle className="pb-3">{item.designation}</CardSubtitle> : null}
+              <CardText className=''>{item.description}</CardText>
+            </CardBody>
+          </Card>
+        </FadeTransform>
+      </div>
     );
   }
 }
 
 function Home(props) {
   return (
-    <div className="container my-5">
-      <div className="row align-items-start">
-        <div className="col-12 col-md m-1">
-          <CardDeck>
-            <RenderCard
-              item={props.dish}
-              isLoading={props.dishesLoading}
-              errMess={props.dishesErrMess}
-            />
-            <RenderCard item={props.promotion}
-              isLoading={props.promosLoading}
-              errMess={props.promosErrMess}
-            />
-            <RenderCard item={props.leader} />
-          </CardDeck>
-        </div>
+    <div className="container">
+      <div className="row">
+        <CardDeck>
+          <RenderCard
+            item={props.dish}
+            isLoading={props.dishesLoading}
+            errMess={props.dishesErrMess}
+          />
+          <RenderCard
+            item={props.promotion}
+            isLoading={props.promosLoading}
+            errMess={props.promosErrMess}
+          />
+          <RenderCard
+            item={props.leader}
+          />
+        </CardDeck>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
+import { FadeTransform, Fade, Stagger } from 'react-animation-components';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
@@ -97,14 +98,20 @@ function RenderComments({ comments, postComment, dishId }) {
 	return (
 		<>
 			<h2>Comments</h2>
-			{comments.map(comment => {
-				return (
-					<div key={comment.id} >
-						<p>{comment.comment}</p>
-						<p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(comment.date))}</p>
-					</div>
-				)
-			})}
+			<Stagger in>
+				<ul className="list-unstyled">
+					{comments.map((comment) => {
+						return (
+							<Fade in>
+								<li key={comment.id}>
+									<p>{comment.comment}</p>
+									<p>-- {comment.author} , {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}</p>
+								</li>
+							</Fade>
+						);
+					})}
+				</ul>
+			</Stagger>
 			<CommentForm dishId={dishId} postComment={postComment} />
 		</>
 	)
@@ -112,13 +119,18 @@ function RenderComments({ comments, postComment, dishId }) {
 
 function RenderDish({ dish }) {
 	return (
-		<Card>
-			<CardImg alt={dish.name} src={baseUrl + dish.image} top width='100%' />
-			<CardBody>
-				<CardTitle tag='h5'>{dish.name}</CardTitle>
-				<CardText tag='h5'>{dish.description}</CardText>
-			</CardBody>
-		</Card>
+		<FadeTransform in
+			transformProps={{
+				exitTransform: 'scale(0.5) translateY(-50%)'
+			}}>
+			<Card>
+				<CardImg alt={dish.name} src={baseUrl + dish.image} top width='100%' />
+				<CardBody>
+					<CardTitle tag='h5'>{dish.name}</CardTitle>
+					<CardText tag='h5'>{dish.description}</CardText>
+				</CardBody>
+			</Card>
+		</FadeTransform>
 	)
 }
 
